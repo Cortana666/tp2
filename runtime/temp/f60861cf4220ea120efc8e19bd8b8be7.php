@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:80:"/Volumes/Sierra_files/www/new/tp2/public/../application/admin/view/admin/lst.htm";i:1521457719;s:71:"/Volumes/Sierra_files/www/new/tp2/application/admin/view/public/top.htm";i:1521457458;s:72:"/Volumes/Sierra_files/www/new/tp2/application/admin/view/public/left.htm";i:1521457447;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:80:"/Volumes/Sierra_files/www/new/tp2/public/../application/admin/view/admin/lst.htm";i:1522063630;s:71:"/Volumes/Sierra_files/www/new/tp2/application/admin/view/public/top.htm";i:1521457458;s:72:"/Volumes/Sierra_files/www/new/tp2/application/admin/view/public/left.htm";i:1522063439;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -112,7 +112,7 @@
 						</a>
 						<ul class="submenu">
 								<li>
-										<a href="/admin/document/index.html">
+										<a href="<?php echo url('lst'); ?>">
 												<span class="menu-text">
 														管理列表                                    </span>
 												<i class="menu-expand"></i>
@@ -176,7 +176,7 @@
                                         <li>
                         <a href="#">系统</a>
                     </li>
-                                        <li class="active">用户管理</li>
+                                        <li class="active">管理员管理</li>
                                         </ul>
                 </div>
                 <!-- /Page Breadcrumb -->
@@ -184,7 +184,7 @@
                 <!-- Page Body -->
                 <div class="page-body">
 
-<button type="button" tooltip="添加用户" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '/admin/user/add.html'"> <i class="fa fa-plus"></i> Add
+<button type="button" tooltip="添加管理员" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '<?php echo url('add'); ?>'"> <i class="fa fa-plus"></i> Add
 </button>
 <div class="row">
     <div class="col-lg-12 col-sm-12 col-xs-12">

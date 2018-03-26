@@ -17847,3 +17847,257 @@
 [ info ] [ PARAM ] array (
 )
 [ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-03-25T23:02:36+08:00 ] 0.0.0.0 GET /public/index/index
+[ info ] tp2.com/public/index/index [运行时间：0.060096s][吞吐率：16.64req/s] [内存消耗：1,782.05kb] [文件加载：43]
+[ info ] [ LANG ] /Volumes/Sierra_files/www/new/tp2/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp2.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ /Volumes/Sierra_files/www/new/tp2/application/index/controller/Index.php ]
+[ info ] [ VIEW ] /Volumes/Sierra_files/www/new/tp2/public/../application/index/view/index/index.htm [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-03-25T23:02:36+08:00 ] 0.0.0.0 GET /public/static/index/style/jquery.error.js
+[ info ] tp2.com/public/static/index/style/jquery.error.js [运行时间：0.104529s][吞吐率：9.57req/s] [内存消耗：1,507.88kb] [文件加载：38]
+[ info ] [ LANG ] /Volumes/Sierra_files/www/new/tp2/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'index',
+    2 => 'style',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp2.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'accept' => '*/*',
+  'referer' => 'http://tp2.com/public/index/index',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-03-25T23:02:36+08:00 ] 0.0.0.0 GET /public/static/index/style/jquery.form.js
+[ info ] tp2.com/public/static/index/style/jquery.form.js [运行时间：0.187547s][吞吐率：5.33req/s] [内存消耗：1,507.88kb] [文件加载：38]
+[ info ] [ LANG ] /Volumes/Sierra_files/www/new/tp2/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'index',
+    2 => 'style',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp2.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'accept' => '*/*',
+  'referer' => 'http://tp2.com/public/index/index',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-03-25T23:02:37+08:00 ] 0.0.0.0 GET /public/static/index/images/sitemap-dot.gif
+[ info ] tp2.com/public/static/index/images/sitemap-dot.gif [运行时间：0.084467s][吞吐率：11.84req/s] [内存消耗：1,507.99kb] [文件加载：38]
+[ info ] [ LANG ] /Volumes/Sierra_files/www/new/tp2/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'index',
+    2 => 'images',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp2.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://tp2.com/public/static/index/style/style.css',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-03-25T23:02:37+08:00 ] 0.0.0.0 GET /public/index/style/img/hots_bg.png
+[ info ] tp2.com/public/index/style/img/hots_bg.png [运行时间：0.089740s][吞吐率：11.14req/s] [内存消耗：1,511.13kb] [文件加载：40]
+[ info ] [ LANG ] /Volumes/Sierra_files/www/new/tp2/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'style',
+    2 => 'img',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp2.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://tp2.com/public/index/index',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-03-25T23:02:37+08:00 ] 0.0.0.0 GET /public/static/index/images/focus-bg2.png
+[ info ] tp2.com/public/static/index/images/focus-bg2.png [运行时间：0.116044s][吞吐率：8.62req/s] [内存消耗：1,507.99kb] [文件加载：38]
+[ info ] [ LANG ] /Volumes/Sierra_files/www/new/tp2/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'index',
+    2 => 'images',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp2.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://tp2.com/public/static/index/style/style.css',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-03-25T23:02:37+08:00 ] 0.0.0.0 GET /public/static/index/images/xh_area_title_h3.png
+[ info ] tp2.com/public/static/index/images/xh_area_title_h3.png [运行时间：0.226570s][吞吐率：4.41req/s] [内存消耗：1,508.01kb] [文件加载：38]
+[ info ] [ LANG ] /Volumes/Sierra_files/www/new/tp2/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'index',
+    2 => 'images',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp2.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://tp2.com/public/static/index/style/style.css',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-03-25T23:02:37+08:00 ] 0.0.0.0 GET /public/static/index/images/loading.gif
+[ info ] tp2.com/public/static/index/images/loading.gif [运行时间：0.202074s][吞吐率：4.95req/s] [内存消耗：1,507.98kb] [文件加载：38]
+[ info ] [ LANG ] /Volumes/Sierra_files/www/new/tp2/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'index',
+    2 => 'images',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp2.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://tp2.com/public/static/index/style/style.css',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-03-25T23:02:37+08:00 ] 0.0.0.0 GET /public/index/images/focus-left-bg.png
+[ info ] tp2.com/public/index/images/focus-left-bg.png [运行时间：0.222430s][吞吐率：4.50req/s] [内存消耗：1,511.20kb] [文件加载：40]
+[ info ] [ LANG ] /Volumes/Sierra_files/www/new/tp2/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'images',
+    2 => 'focus-left-bg.png',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp2.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://tp2.com/public/index/index',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-03-25T23:02:37+08:00 ] 0.0.0.0 GET /public/static/index/images/scroll.png
+[ info ] tp2.com/public/static/index/images/scroll.png [运行时间：0.102591s][吞吐率：9.75req/s] [内存消耗：1,507.98kb] [文件加载：38]
+[ info ] [ LANG ] /Volumes/Sierra_files/www/new/tp2/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'index',
+    2 => 'images',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'tp2.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://tp2.com/public/static/index/style/style.css',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File

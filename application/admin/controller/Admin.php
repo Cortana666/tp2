@@ -2,9 +2,9 @@
   namespace app\admin\controller;
 
   // use think\view;
-  // use think\controller;
+  use think\controller;
 
-  class Admin
+  class Admin extends Controller
   {
       public function lst()
       {
@@ -24,6 +24,15 @@
       }
       public function add()
       {
+        if (request() -> isPost()) {
+          $res = db('admin') -> insert(input('post.'));
+          if ($res) {
+            $this -> success('添加管理员成功！', url('lst'));
+          }else {
+            $this -> error('添加管理员失败！', url('lst'));
+          }
+          return;
+        }
         return view();
       }
       public function edit()
