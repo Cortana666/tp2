@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:80:"/Volumes/Sierra_files/www/new/tp2/public/../application/admin/view/admin/lst.htm";i:1522063630;s:71:"/Volumes/Sierra_files/www/new/tp2/application/admin/view/public/top.htm";i:1521457458;s:72:"/Volumes/Sierra_files/www/new/tp2/application/admin/view/public/left.htm";i:1522063439;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:80:"/Volumes/Sierra_files/www/new/tp2/public/../application/admin/view/admin/lst.htm";i:1522242154;s:71:"/Volumes/Sierra_files/www/new/tp2/application/admin/view/public/top.htm";i:1521457458;s:72:"/Volumes/Sierra_files/www/new/tp2/application/admin/view/public/left.htm";i:1522063439;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -200,33 +200,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                                                        <tr>
-                                <td align="center">6</td>
-                                <td align="center">test</td>
-                                <td align="center">
-                                    <a href="/admin/user/edit/id/6.html" class="btn btn-primary btn-sm shiny">
-                                        <i class="fa fa-edit"></i> 编辑
-                                    </a>
-                                    <a href="#" onClick="warning('确实要删除吗', '/admin/user/del/id/6.html')" class="btn btn-danger btn-sm shiny">
-                                        <i class="fa fa-trash-o"></i> 删除
-                                    </a>
-                                </td>
-                            </tr>
-                                                        <tr>
-                                <td align="center">7</td>
-                                <td align="center">aaaaaa</td>
-                                <td align="center">
-                                    <a href="/admin/user/edit/id/7.html" class="btn btn-primary btn-sm shiny">
-                                        <i class="fa fa-edit"></i> 编辑
-                                    </a>
-                                    <a href="#" onClick="warning('确实要删除吗', '/admin/user/del/id/7.html')" class="btn btn-danger btn-sm shiny">
-                                        <i class="fa fa-trash-o"></i> 删除
-                                    </a>
-                                </td>
-                            </tr>
-                                                        <tr>
-                                <td align="center">8</td>
-                                <td align="center">bbb</td>
+													<?php if(is_array($adminres) || $adminres instanceof \think\Collection || $adminres instanceof \think\Paginator): $i = 0; $__LIST__ = $adminres;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$admin): $mod = ($i % 2 );++$i;?>
+                            <tr>
+                                <td align="center"><?php echo $admin['id']; ?></td>
+                                <td align="center"><?php echo $admin['name']; ?></td>
                                 <td align="center">
                                     <a href="/admin/user/edit/id/8.html" class="btn btn-primary btn-sm shiny">
                                         <i class="fa fa-edit"></i> 编辑
@@ -236,11 +213,13 @@
                                     </a>
                                 </td>
                             </tr>
-                                                    </tbody>
+													<?php endforeach; endif; else: echo "" ;endif; ?>
+                        </tbody>
                     </table>
                 </div>
-                <div>
-                	                </div>
+                <div style="width: 210px;margin: auto;padding-top: 15px;">
+									<?php echo $adminres->render(); ?>
+                </div>
             </div>
         </div>
     </div>

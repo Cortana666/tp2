@@ -7,8 +7,9 @@
   {
       public function lst()
       {
-        $res = db('admin') -> select();
-        dump($res);die;
+        $admin = new AdminModel();
+        $res = $admin -> getadmin();
+        $this->assign('adminres',$res);
         return view();
       }
       public function add()

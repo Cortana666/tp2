@@ -4,7 +4,7 @@
 
   class Admin extends Model
   {
-    function addadmin($data){
+    public function addadmin($data) {
       if (empty($data) || !is_array($data)) {
         return false;
       }
@@ -16,5 +16,9 @@
       }else {
         return false;
       }
+    }
+
+    public function getadmin() {
+      return $this -> paginate(3);
     }
   }
