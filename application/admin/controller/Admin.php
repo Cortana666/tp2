@@ -7,6 +7,8 @@
   {
       public function lst()
       {
+        $res = db('admin') -> select();
+        dump($res);die;
         return view();
       }
       public function add()
