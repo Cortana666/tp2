@@ -1,31 +1,19 @@
 <?php
   namespace app\admin\controller;
-
-  // use think\view;
-  use think\controller;
+  use think\Controller;
+  use app\admin\model\Admin as AdminModel;
 
   class Admin extends Controller
   {
       public function lst()
       {
         return view();
-
-        // $view = new \think\view([
-        //     'view_suffix'  => 'htm',
-        // ]);
-        // return $view -> fetch();
-
-        // $view = new view([
-        //     'view_suffix'  => 'htm',
-        // ]);
-        // return $view -> fetch();
-
-        // return $this -> fetch();
       }
       public function add()
       {
         if (request() -> isPost()) {
-          $res = db('admin') -> insert(input('post.'));
+          $admin = new AdminModel();
+          $res = $admin -> addadmin(input('post.'));
           if ($res) {
             $this -> success('添加管理员成功！', url('lst'));
           }else {
