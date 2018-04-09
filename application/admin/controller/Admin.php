@@ -1,9 +1,10 @@
 <?php
   namespace app\admin\controller;
-  use think\Controller;
+  use think\Session;
+  use app\admin\controller\Common;
   use app\admin\model\Admin as AdminModel;
 
-  class Admin extends Controller
+  class Admin extends Common
   {
       public function lst()
       {
@@ -12,6 +13,7 @@
         $this->assign('adminres',$res);
         return view();
       }
+
       public function add()
       {
         if (request() -> isPost()) {
@@ -26,8 +28,38 @@
         }
         return view();
       }
-      public function edit()
+
+      public function edit($id)
       {
+        $admin = new AdminModel;
+        $adminres = $admin -> editAdmin($id);
+        if (request()->isPost()) {
+          if ($admin -> saveAdmin(input('post.'),$adminres) !== false) {
+            $this -> success('修改管理员成功！', url('lst'));
+          }else {
+            $this -> error('修改管理员失败！');
+          }
+        }
+        if (!$admin) {
+          $this -> error('该管理员不存在！');
+        }
+        $this->assign('adminres',$adminres);
         return view();
+      }
+
+      public function del($id)
+      {
+        $admin = new AdminModel();
+        if ($admin -> delAdmin($id)) {
+          $this -> success('删除管理员成功！', url('lst'));
+        }else {
+          $this -> error('删除管理员失败！', url('lst'));
+        }
+      }
+
+      public function logOut() {
+        Session::delete('id');
+        Session::delete('name');
+        $this -> success('退出成功！',url('login/index'));
       }
   }

@@ -67,10 +67,10 @@
                                 <td align="center">{$admin.id}</td>
                                 <td align="center">{$admin.name}</td>
                                 <td align="center">
-                                    <a href="/admin/user/edit/id/8.html" class="btn btn-primary btn-sm shiny">
+                                    <a href="{:url('edit', array('id'=>$admin.id))}" class="btn btn-primary btn-sm shiny">
                                         <i class="fa fa-edit"></i> 编辑
                                     </a>
-                                    <a href="#" onClick="warning('确实要删除吗', '/admin/user/del/id/8.html')" class="btn btn-danger btn-sm shiny">
+                                    <a href="#" onClick="warning('确实要删除吗', '{:url('del',array('id'=>$admin.id))}')" class="btn btn-danger btn-sm shiny">
                                         <i class="fa fa-trash-o"></i> 删除
                                     </a>
                                 </td>
@@ -79,7 +79,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div style="width: 210px;margin: auto;padding-top: 15px;">
+                <div style="width: 210px;margin: auto;padding-top: 15test.htmlpx;">
 									{$adminres->render()}
                 </div>
             </div>

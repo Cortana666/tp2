@@ -40,9 +40,9 @@
                         <a href="#">系统</a>
                     </li>
                                         <li>
-                        <a href="{:url('lst')}">管理员管理</a>
+                        <a href="{:url('lst')}">栏目管理</a>
                     </li>
-                                        <li class="active">添加管理员</li>
+                                        <li class="active">添加栏目</li>
                                         </ul>
                 </div>
                 <!-- /Page Breadcrumb -->
@@ -54,23 +54,48 @@
     <div class="col-lg-12 col-sm-12 col-xs-12">
         <div class="widget">
             <div class="widget-header bordered-bottom bordered-blue">
-                <span class="widget-caption">新增管理员</span>
+                <span class="widget-caption">新增栏目</span>
             </div>
             <div class="widget-body">
                 <div id="horizontal-form">
                     <form class="form-horizontal" role="form" action="" method="post">
-                        <div class="form-group">
-                            <label for="username" class="col-sm-2 control-label no-padding-right">管理员名称</label>
+											<div class="form-group">
+													<label for="group_id" class="col-sm-2 control-label no-padding-right">上级栏目</label>
+													<div class="col-sm-6">
+															<select name="pid" style="width: 100%;">
+																<option selected="selected" value="0">顶级栏目</option>
+																{volist name='cateres' id='cate'}
+																 <option selected="selected" value="{$cate.id}"><?php echo str_repeat('---',$cate['level']) ?>{$cate.catename}</option>
+																{/volist}
+														</select>
+													</div>
+											</div>
+
+												<div class="form-group">
+                            <label for="username" class="col-sm-2 control-label no-padding-right">栏目名称</label>
                             <div class="col-sm-6">
-                                <input class="form-control" placeholder="" name="name" required="" type="text">
+                                <input class="form-control" placeholder="" name="catename" required="" type="text">
                             </div>
                             <p class="help-block col-sm-4 red">* 必填</p>
                         </div>
 
+
+
                         <div class="form-group">
-                            <label for="group_id" class="col-sm-2 control-label no-padding-right">管理员密码</label>
+                            <label for="group_id" class="col-sm-2 control-label no-padding-right">栏目类型</label>
 														<div class="col-sm-6">
-                                <input class="form-control" placeholder="" name="password" required="" type="text">
+                                <div class="radio" style="float:left;margin-right:10px">
+																	<label>
+																		<input value="1" checked="checked" type="radio" name="type" class="basic">
+																		<span class="text">列表</span>
+																	</label>
+                                </div>
+																<div class="radio" style="float:left;margin-right:10px">
+																	<label>
+																		<input value="2" type="radio" name="type" class="inverted">
+																		<span class="text">单页</span>
+																	</label>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
