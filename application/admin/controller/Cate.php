@@ -7,15 +7,13 @@
   class Cate extends Common
   {
       protected $beforeActionList = [
-          'first',
-          'second' =>  ['except'=>'hello'],
-          'three'  =>  ['only'=>'hello,data'],
+          'delson'  =>  ['only'=>'del'],
       ];
 
       public function lst()
       {
         $cate = new CateModel();
-        $res = $cate -> catetree();
+        $res = $cate -> cateTree();
         $this -> assign('cateres',$res);
         return view();
       }
@@ -30,7 +28,7 @@
             $this -> error('添加栏目失败！');
           }
         }
-        $res = $cate -> catetree();
+        $res = $cate -> cateTree();
         $this -> assign('cateres',$res);
         return view();
       }
@@ -42,5 +40,12 @@
         }else {
           $this -> error('删除栏目失败！',url('lst'));
         }
+      }
+
+      public function delson() {
+        $id = input('id');
+        $cate = new CateModel();
+        $sonid = $cate -> getSonId($id);
+        db('cate') -> delete($sonid);
       }
   }
