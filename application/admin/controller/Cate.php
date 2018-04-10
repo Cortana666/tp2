@@ -46,6 +46,8 @@
         $id = input('id');
         $cate = new CateModel();
         $sonid = $cate -> getSonId($id);
-        db('cate') -> delete($sonid);
+        if ($sonid) {
+          db('cate') -> delete($sonid);
+        }
       }
   }
