@@ -50,4 +50,14 @@
           db('cate') -> delete($sonid);
         }
       }
+
+      public function edit($id) {
+        $cate = new CateModel();
+        $res = $cate -> cateTree();
+        $this -> assign('cateres',$res);
+        $cateres = $cate -> where('id',$id) -> find();
+        // dump($cateres);die;
+        $this -> assign('data',$cateres);
+        return view();
+      }
   }
