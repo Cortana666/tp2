@@ -13,6 +13,10 @@
       public function lst()
       {
         $cate = new CateModel();
+        if (request()->isPost()) {
+          $data = input('post.');
+          $cate -> cateLst($data);
+        }
         $res = $cate -> cateTree();
         $this -> assign('cateres',$res);
         return view();
@@ -53,10 +57,17 @@
 
       public function edit($id) {
         $cate = new CateModel();
+        if (request()->isPost()) {
+          $data = input('post.');
+          if ($cate -> save($data,['id' => $data['id']])) {
+            $this -> success('修改栏目成功！',url('lst'));
+          }else {
+            $this -> error('修改栏目失败！');
+          }
+        }
         $res = $cate -> cateTree();
         $this -> assign('cateres',$res);
         $cateres = $cate -> where('id',$id) -> find();
-        // dump($cateres);die;
         $this -> assign('data',$cateres);
         return view();
       }

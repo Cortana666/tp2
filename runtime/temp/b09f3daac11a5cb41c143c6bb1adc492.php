@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:96:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/public/../application/admin/view/cate/add.htm";i:1523278337;s:88:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/top.htm";i:1522757993;s:89:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/left.htm";i:1522761448;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:96:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/public/../application/admin/view/cate/add.htm";i:1523362495;s:88:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/top.htm";i:1522757993;s:89:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/left.htm";i:1522761448;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -205,7 +205,7 @@
 															<select name="pid" style="width: 100%;">
 																<option selected="selected" value="0">顶级栏目</option>
 																<?php if(is_array($cateres) || $cateres instanceof \think\Collection || $cateres instanceof \think\Paginator): $i = 0; $__LIST__ = $cateres;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$cate): $mod = ($i % 2 );++$i;?>
-																 <option selected="selected" value="<?php echo $cate['id']; ?>"><?php echo str_repeat('---',$cate['level']) ?><?php echo $cate['catename']; ?></option>
+																 <option value="<?php echo $cate['id']; ?>"><?php echo str_repeat('---',$cate['level']) ?><?php echo $cate['catename']; ?></option>
 																<?php endforeach; endif; else: echo "" ;endif; ?>
 														</select>
 													</div>

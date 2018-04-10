@@ -65,7 +65,7 @@
 															<select name="pid" style="width: 100%;">
 																<option selected="selected" value="0">顶级栏目</option>
 																{volist name='cateres' id='cate'}
-																 <option selected="selected" value="{$cate.id}"><?php echo str_repeat('---',$cate['level']) ?>{$cate.catename}</option>
+																 <option value="{$cate.id}"><?php echo str_repeat('---',$cate['level']) ?>{$cate.catename}</option>
 																{/volist}
 														</select>
 													</div>

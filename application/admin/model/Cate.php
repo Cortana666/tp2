@@ -6,7 +6,7 @@
   class Cate extends Model
   {
     public function cateTree() {
-      $data = $this -> select();
+      $data = $this -> order('sort desc') -> select();
       return $this -> sort($data);
     }
     public function sort($data,$pid=0,$level=0) {
@@ -34,5 +34,17 @@
         }
       }
       return $sonarr;
+    }
+
+    public function cateLst($data) {
+      $arr = array();
+      $i = 0;
+      foreach ($data as $key => $value) {
+        $arr[$i]['id'] = $key;
+        $arr[$i]['sort'] = $value;
+        $i++;
+      }
+      $res = $this -> saveAll($arr);
+      return $res;
     }
   }

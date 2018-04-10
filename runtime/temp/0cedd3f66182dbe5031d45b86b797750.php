@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:97:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/public/../application/admin/view/cate/edit.htm";i:1523361744;s:88:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/top.htm";i:1522757993;s:89:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/left.htm";i:1522761448;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:97:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/public/../application/admin/view/cate/edit.htm";i:1523362134;s:88:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/top.htm";i:1522757993;s:89:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/left.htm";i:1522761448;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -199,6 +199,7 @@
             <div class="widget-body">
                 <div id="horizontal-form">
                     <form class="form-horizontal" role="form" action="" method="post">
+											<input type="hidden" name="id" value="<?php echo $data['id']; ?>">
 											<div class="form-group">
 													<label for="group_id" class="col-sm-2 control-label no-padding-right">上级栏目</label>
 													<div class="col-sm-6">
