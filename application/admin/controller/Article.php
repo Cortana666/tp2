@@ -16,14 +16,14 @@
         $data = input('post.');
         $data['time'] = 20180411;
         $article = new ArticleModel();
-        if ($_FILES['thumb']['tmp_name']) {
-          $file = request()->file('thumb');
-          $info = $file->move(ROOT_PATH . 'public' . DS . 'uploads');
-          if($info){
-            $url = 'public' . DS . 'uploads'.'/'.$info->getSaveName();
-            $data['thumb'] = $url;
-          }
-        }
+        // if ($_FILES['thumb']['tmp_name']) {
+        //   $file = request()->file('thumb');
+        //   $info = $file->move(ROOT_PATH . 'public' . DS . 'uploads');
+        //   if($info){
+        //     $url = 'public' . DS . 'uploads'.'/'.$info->getSaveName();
+        //     $data['thumb'] = $url;
+        //   }
+        // }
         $res = $article -> addArticle($data);
         if ($res) {
           $this -> success('添加文章成功！',url('lst'));
