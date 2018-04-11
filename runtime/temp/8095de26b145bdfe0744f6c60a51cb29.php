@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:99:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/public/../application/admin/view/article/add.htm";i:1523449288;s:88:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/top.htm";i:1522757993;s:89:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/left.htm";i:1523445719;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:99:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/public/../application/admin/view/article/add.htm";i:1523452650;s:88:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/top.htm";i:1522757993;s:89:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/left.htm";i:1523445719;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -201,46 +201,46 @@
             </div>
             <div class="widget-body">
                 <div id="horizontal-form">
-                    <form class="form-horizontal" role="form" action="" method="post">
+                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
 												<div class="form-group">
                             <label for="username" class="col-sm-2 control-label no-padding-right">标题</label>
                             <div class="col-sm-6">
-                                <input class="form-control" placeholder="" name="catename" required="" type="text">
+                                <input class="form-control" placeholder="" name="title" required="" type="text">
                             </div>
                             <p class="help-block col-sm-4 red">* 必填</p>
                         </div>
 												<div class="form-group">
                             <label for="username" class="col-sm-2 control-label no-padding-right">作者</label>
                             <div class="col-sm-6">
-                                <input class="form-control" placeholder="" name="catename" required="" type="text">
+                                <input class="form-control" placeholder="" name="author" required="" type="text">
                             </div>
                             <p class="help-block col-sm-4 red">* 必填</p>
                         </div>
 												<div class="form-group">
                             <label for="username" class="col-sm-2 control-label no-padding-right">关键词</label>
                             <div class="col-sm-6">
-                                <input class="form-control" placeholder="" name="catename" required="" type="text">
+                                <input class="form-control" placeholder="" name="keywords" required="" type="text">
                             </div>
                             <p class="help-block col-sm-4 red">* 必填</p>
                         </div>
 												<div class="form-group">
                             <label for="username" class="col-sm-2 control-label no-padding-right">描述</label>
                             <div class="col-sm-6">
-                                <textarea name="name" class="form-control"></textarea>
+                                <textarea name="desc" class="form-control"></textarea>
                             </div>
                             <p class="help-block col-sm-4 red">* 必填</p>
                         </div>
 												<div class="form-group">
                             <label for="username" class="col-sm-2 control-label no-padding-right">缩略图</label>
                             <div class="col-sm-6">
-                                <input placeholder="" name="catename" required="" type="file">
+                                <input placeholder="" name="thumb" required="" type="file">
                             </div>
                             <p class="help-block col-sm-4 red">* 必填</p>
                         </div>
 												<div class="form-group">
 														<label for="group_id" class="col-sm-2 control-label no-padding-right">所属栏目</label>
 														<div class="col-sm-6">
-																<select name="pid" style="width: 100%;">
+																<select name="cateid" style="width: 100%;">
 																	<option selected="selected" value="0">顶级栏目</option>
 																	<?php if(is_array($cateres) || $cateres instanceof \think\Collection || $cateres instanceof \think\Paginator): $i = 0; $__LIST__ = $cateres;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$cate): $mod = ($i % 2 );++$i;?>
 																	 <option value="<?php echo $cate['id']; ?>"><?php echo str_repeat('---',$cate['level']) ?><?php echo $cate['catename']; ?></option>
@@ -252,7 +252,7 @@
 												<div class="form-group">
                             <label for="username" class="col-sm-2 control-label no-padding-right">内容</label>
                             <div class="col-sm-6">
-																<textarea id="content"></textarea>
+																<textarea id="content" name="content"></textarea>
                             </div>
                         </div>
                         <div class="form-group">

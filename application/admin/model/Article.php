@@ -5,5 +5,7 @@
 
   class Article extends Model
   {
-
+    public function addArticle($data) {
+      return $this -> save($data);
+    }
   }

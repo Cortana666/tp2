@@ -61,46 +61,46 @@
             </div>
             <div class="widget-body">
                 <div id="horizontal-form">
-                    <form class="form-horizontal" role="form" action="" method="post">
+                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
 												<div class="form-group">
                             <label for="username" class="col-sm-2 control-label no-padding-right">标题</label>
                             <div class="col-sm-6">
-                                <input class="form-control" placeholder="" name="catename" required="" type="text">
+                                <input class="form-control" placeholder="" name="title" required="" type="text">
                             </div>
                             <p class="help-block col-sm-4 red">* 必填</p>
                         </div>
 												<div class="form-group">
                             <label for="username" class="col-sm-2 control-label no-padding-right">作者</label>
                             <div class="col-sm-6">
-                                <input class="form-control" placeholder="" name="catename" required="" type="text">
+                                <input class="form-control" placeholder="" name="author" required="" type="text">
                             </div>
                             <p class="help-block col-sm-4 red">* 必填</p>
                         </div>
 												<div class="form-group">
                             <label for="username" class="col-sm-2 control-label no-padding-right">关键词</label>
                             <div class="col-sm-6">
-                                <input class="form-control" placeholder="" name="catename" required="" type="text">
+                                <input class="form-control" placeholder="" name="keywords" required="" type="text">
                             </div>
                             <p class="help-block col-sm-4 red">* 必填</p>
                         </div>
 												<div class="form-group">
                             <label for="username" class="col-sm-2 control-label no-padding-right">描述</label>
                             <div class="col-sm-6">
-                                <textarea name="name" class="form-control"></textarea>
+                                <textarea name="desc" class="form-control"></textarea>
                             </div>
                             <p class="help-block col-sm-4 red">* 必填</p>
                         </div>
 												<div class="form-group">
                             <label for="username" class="col-sm-2 control-label no-padding-right">缩略图</label>
                             <div class="col-sm-6">
-                                <input placeholder="" name="catename" required="" type="file">
+                                <input placeholder="" name="thumb" required="" type="file">
                             </div>
                             <p class="help-block col-sm-4 red">* 必填</p>
                         </div>
 												<div class="form-group">
 														<label for="group_id" class="col-sm-2 control-label no-padding-right">所属栏目</label>
 														<div class="col-sm-6">
-																<select name="pid" style="width: 100%;">
+																<select name="cateid" style="width: 100%;">
 																	<option selected="selected" value="0">顶级栏目</option>
 																	{volist name='cateres' id='cate'}
 																	 <option value="{$cate.id}"><?php echo str_repeat('---',$cate['level']) ?>{$cate.catename}</option>
@@ -112,7 +112,7 @@
 												<div class="form-group">
                             <label for="username" class="col-sm-2 control-label no-padding-right">内容</label>
                             <div class="col-sm-6">
-																<textarea id="content"></textarea>
+																<textarea id="content" name="content"></textarea>
                             </div>
                         </div>
                         <div class="form-group">
