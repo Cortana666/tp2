@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:99:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/public/../application/admin/view/article/lst.htm";i:1523452219;s:88:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/top.htm";i:1522757993;s:89:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/left.htm";i:1523445719;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:99:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/public/../application/admin/view/article/lst.htm";i:1523532684;s:88:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/top.htm";i:1522757993;s:89:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/left.htm";i:1523445719;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -199,32 +199,44 @@
 															<tr>
 																	<th class="text-center">ID</th>
 																	<th class="text-center">标题</th>
+																	<th class="text-center">缩略图</th>
 																	<th class="text-center">作者</th>
 																	<th class="text-center">所属栏目</th>
 																	<th class="text-center">操作</th>
 															</tr>
 													</thead>
 													<tbody>
-															<tr>
-																	<td align="center">1</td>
-																	<td align="center">文章1</td>
-																	<td align="center">佚名</td>
-																	<td align="center">中国</td>
-																	<td align="center">
-																			<a href="" class="btn btn-primary btn-sm shiny">
-																					<i class="fa fa-edit"></i> 编辑
-																			</a>
-																			<a href="#" onClick="warning('确实要删除吗？')" class="btn btn-danger btn-sm shiny">
-																					<i class="fa fa-trash-o"></i> 删除
-																			</a>
-																	</td>
-															</tr>
+															<?php if(is_array($article) || $article instanceof \think\Collection || $article instanceof \think\Paginator): $i = 0; $__LIST__ = $article;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$art): $mod = ($i % 2 );++$i;?>
+																<tr>
+																		<td align="center"><?php echo $art['id']; ?></td>
+																		<td align="center">
+																			<?php
+																				if(mb_strlen($art['title'])>7){
+																					echo mb_substr($art['title'],0,6,'utf-8').'......';
+																				}else{
+																					echo $art['title'];
+																				}
+																			?>
+																		</td>
+																		<td align="center"><img style="width:25px;height:25px;" src="<?php echo $art['thumb']; ?>"></td>
+																		<td align="center"><?php echo $art['author']; ?></td>
+																		<td align="center"><?php echo $art['catename']; ?></td>
+																		<td align="center">
+																				<a href="<?php echo url('edit'); ?>" class="btn btn-primary btn-sm shiny">
+																						<i class="fa fa-edit"></i> 编辑
+																				</a>
+																				<a href="#" onClick="warning('确实要删除吗？',<?php echo url('del',array('id'=>$art['id'])); ?>)" class="btn btn-danger btn-sm shiny">
+																						<i class="fa fa-trash-o"></i> 删除
+																				</a>
+																		</td>
+																</tr>
+															<?php endforeach; endif; else: echo "" ;endif; ?>
 													</tbody>
 											</table>
                     </form>
                 </div>
                 <div style="width: 210px;margin: auto;padding-top: 15test.htmlpx;">
-
+									<?php echo $article->render(); ?>
                 </div>
             </div>
         </div>

@@ -7,12 +7,15 @@
   {
     protected static function init()
     {
-        Article::event('before_insert', function ($data) {
-            dump($data);die;
+        Article::event('before_insert', function ($article) {
+          if ($_FILES['thumb']['tmp_name']) {
+            $file = request()->file('thumb');
+            $info = $file->move(ROOT_PATH . 'public' . DS . 'uploads');
+            if($info){
+              $url = 'http://tp2.com/' . 'public' . DS . 'uploads'.'/'.$info->getSaveName();
+              $article['thumb'] = $url;
+            }
+          }
         });
-    }
-
-    public function addArticle($data) {
-      return $this -> save($data);
     }
   }

@@ -8,24 +8,19 @@
   class Article extends Common
   {
     public function lst() {
+      $article = new ArticleModel();
+      $res = $article -> view('cate','catename')
+                  ->view('article','id,title,author,thumb','cate.id=article.cateid')
+                  ->paginate(1);
+      $this -> assign('article',$res);
       return view();
     }
 
     public function add() {
       if (request() -> isPost()) {
         $data = input('post.');
-        $data['time'] = 20180411;
         $article = new ArticleModel();
-        // if ($_FILES['thumb']['tmp_name']) {
-        //   $file = request()->file('thumb');
-        //   $info = $file->move(ROOT_PATH . 'public' . DS . 'uploads');
-        //   if($info){
-        //     $url = 'public' . DS . 'uploads'.'/'.$info->getSaveName();
-        //     $data['thumb'] = $url;
-        //   }
-        // }
-        $res = $article -> addArticle($data);
-        if ($res) {
+        if ($article -> save($data)) {
           $this -> success('添加文章成功！',url('lst'));
         }else {
           $this -> error('添加文章失败！');
