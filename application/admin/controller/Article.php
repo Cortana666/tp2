@@ -53,4 +53,9 @@
       ));
       return view();
     }
+
+    public function del()
+    {
+      echo "string";die;
+    }
   }
