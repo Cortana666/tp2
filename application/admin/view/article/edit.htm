@@ -17,6 +17,9 @@
     <link href="__ADMIN__/style/demo.css" rel="stylesheet">
     <link href="__ADMIN__/style/typicons.css" rel="stylesheet">
     <link href="__ADMIN__/style/animate.css" rel="stylesheet">
+		<script type="text/javascript" src="__ADMIN__/bdediter/ueditor.config.js"></script>
+		<script type="text/javascript" src="__ADMIN__/bdediter/ueditor.all.min.js"></script>
+		<script type="text/javascript" src="__ADMIN__/bdediter/lang/zh-cn/zh-cn.js"></script>
 
 </head>
 <body>
@@ -40,9 +43,9 @@
                         <a href="#">系统</a>
                     </li>
                                         <li>
-                        <a href="{:url('lst')}">栏目管理</a>
+                        <a href="{:url('lst')}">文章管理</a>
                     </li>
-                                        <li class="active">编辑栏目</li>
+                                        <li class="active">编辑文章</li>
                                         </ul>
                 </div>
                 <!-- /Page Breadcrumb -->
@@ -54,50 +57,66 @@
     <div class="col-lg-12 col-sm-12 col-xs-12">
         <div class="widget">
             <div class="widget-header bordered-bottom bordered-blue">
-                <span class="widget-caption">编辑栏目</span>
+                <span class="widget-caption">编辑文章</span>
             </div>
             <div class="widget-body">
                 <div id="horizontal-form">
-                    <form class="form-horizontal" role="form" action="" method="post">
-											<input type="hidden" name="id" value="{$data.id}">
-											<div class="form-group">
-													<label for="group_id" class="col-sm-2 control-label no-padding-right">上级栏目</label>
-													<div class="col-sm-6">
-															<select name="pid" style="width: 100%;">
-																<option selected="selected" value="0">顶级栏目</option>
-																{volist name='cateres' id='cate'}
-																 <option {if condition="$data.pid == $cate.id"}selected="selected"{/if} value="{$cate.id}"><?php echo str_repeat('---',$cate['level']) ?>{$cate.catename}</option>
-																{/volist}
-														</select>
-													</div>
-													<p class="help-block col-sm-4 red">* 必填</p>
-											</div>
-
+                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+											<input type="hidden" name="id" value="{$articleres.id}">
 												<div class="form-group">
-                            <label for="username" class="col-sm-2 control-label no-padding-right">栏目名称</label>
+                            <label for="username" class="col-sm-2 control-label no-padding-right">标题</label>
                             <div class="col-sm-6">
-                                <input class="form-control" placeholder="" name="catename" required="" type="text" value="{$data.catename}">
+                                <input value="{$articleres.title}" class="form-control" placeholder="" name="title" required="" type="text">
                             </div>
                             <p class="help-block col-sm-4 red">* 必填</p>
                         </div>
-
-
-
-                        <div class="form-group">
-                            <label for="group_id" class="col-sm-2 control-label no-padding-right">栏目类型</label>
+												<div class="form-group">
+                            <label for="username" class="col-sm-2 control-label no-padding-right">作者</label>
+                            <div class="col-sm-6">
+                                <input value="{$articleres.author}" class="form-control" placeholder="" name="author" required="" type="text">
+                            </div>
+                            <p class="help-block col-sm-4 red">* 必填</p>
+                        </div>
+												<div class="form-group">
+                            <label for="username" class="col-sm-2 control-label no-padding-right">关键词</label>
+                            <div class="col-sm-6">
+                                <input value="{$articleres.keywords}" class="form-control" placeholder="" name="keywords" required="" type="text">
+                            </div>
+                            <p class="help-block col-sm-4 red">* 必填</p>
+                        </div>
+												<div class="form-group">
+                            <label for="username" class="col-sm-2 control-label no-padding-right">描述</label>
+                            <div class="col-sm-6">
+                                <textarea name="desc" class="form-control">{$articleres.desc}</textarea>
+                            </div>
+                            <p class="help-block col-sm-4 red">* 必填</p>
+                        </div>
+												<div class="form-group">
+                            <label for="username" class="col-sm-2 control-label no-padding-right">缩略图</label>
+                            <div class="col-sm-6">
+                                <input style="float:left;" placeholder="" name="thumb" type="file">
+																{if condition="$articleres.thumb neq ''"}<img style="float:left;width:25px;height:25px;" src="http://{$_SERVER['HTTP_HOST'].'/'.$articleres.thumb}" alt="">
+																{else /}暂无缩略图
+																{/if}
+                            </div>
+                            <p class="help-block col-sm-4 red">* 必填</p>
+                        </div>
+												<div class="form-group">
+														<label for="group_id" class="col-sm-2 control-label no-padding-right">所属栏目</label>
 														<div class="col-sm-6">
-                                <div class="radio" style="float:left;margin-right:10px">
-																	<label>
-																		<input value="1" {if condition="$data.type==1"}checked="checked"{/if} type="radio" name="type" class="basic">
-																		<span class="text">列表</span>
-																	</label>
-                                </div>
-																<div class="radio" style="float:left;margin-right:10px">
-																	<label>
-																		<input value="2" {if condition="$data.type==2"}checked="checked"{/if} type="radio" name="type" class="inverted">
-																		<span class="text">单页</span>
-																	</label>
-                                </div>
+																<select name="cateid" style="width: 100%;">
+																	<option selected="selected" value="0">顶级栏目</option>
+																	{volist name='cateres' id='cate'}
+																	 <option {if condition="$cate.id eq $articleres.cateid"}selected="selected"{/if} value="{$cate.id}"><?php echo str_repeat('---',$cate['level']) ?>{$cate.catename}</option>
+																	{/volist}
+															</select>
+														</div>
+														<p class="help-block col-sm-4 red">* 必填</p>
+												</div>
+												<div class="form-group">
+                            <label for="username" class="col-sm-2 control-label no-padding-right">内容</label>
+                            <div class="col-sm-6">
+																<textarea id="content" name="content">{$articleres.content}</textarea>
                             </div>
                         </div>
                         <div class="form-group">
@@ -125,6 +144,9 @@
     <script src="__ADMIN__/style/jquery.js"></script>
     <!--Beyond Scripts-->
     <script src="__ADMIN__/style/beyond.js"></script>
+		<script type="text/javascript">
+			UE.getEditor('content',{initiaIFrameWidth:1500,initiaIFrameHeight:400,});
+		</script>
 
 
 

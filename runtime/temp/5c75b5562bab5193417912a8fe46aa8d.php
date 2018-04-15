@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:99:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/public/../application/admin/view/index/index.htm";i:1522395187;s:88:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/top.htm";i:1522757993;s:89:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/left.htm";i:1523445719;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:100:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/public/../application/admin/view/article/edit.htm";i:1523801643;s:88:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/top.htm";i:1522757993;s:89:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/left.htm";i:1523445719;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -18,6 +18,9 @@
     <link href="http://tp2.com/public/static/admin/style/demo.css" rel="stylesheet">
     <link href="http://tp2.com/public/static/admin/style/typicons.css" rel="stylesheet">
     <link href="http://tp2.com/public/static/admin/style/animate.css" rel="stylesheet">
+		<script type="text/javascript" src="http://tp2.com/public/static/admin/bdediter/ueditor.config.js"></script>
+		<script type="text/javascript" src="http://tp2.com/public/static/admin/bdediter/ueditor.all.min.js"></script>
+		<script type="text/javascript" src="http://tp2.com/public/static/admin/bdediter/lang/zh-cn/zh-cn.js"></script>
 
 </head>
 <body>
@@ -86,7 +89,8 @@
 	<div class="main-container container-fluid">
 		<div class="page-container">
 			            <!-- Page Sidebar -->
-            <div class="page-sidebar" id="sidebar">
+
+									<div class="page-sidebar" id="sidebar">
 		<!-- Page Sidebar Header-->
 		<div class="sidebar-header-wrapper">
 				<input class="searchinput" type="text">
@@ -175,7 +179,13 @@
                 <!-- Page Breadcrumb -->
                 <div class="page-breadcrumbs">
                     <ul class="breadcrumb">
-                                        <li class="active">控制面板</li>
+                                        <li>
+                        <a href="#">系统</a>
+                    </li>
+                                        <li>
+                        <a href="<?php echo url('lst'); ?>">文章管理</a>
+                    </li>
+                                        <li class="active">编辑文章</li>
                                         </ul>
                 </div>
                 <!-- /Page Breadcrumb -->
@@ -183,11 +193,83 @@
                 <!-- Page Body -->
                 <div class="page-body">
 
-				<div style="text-align:center; line-height:1000%; font-size:24px;">
-                童老师THinkPHP5.0正式版 第三季 实战开发大型CMS<br>
-                <p style="color:#f00;">ThinkPHP交流群①：484519446【满】 | 群②：480018415【满】  | 群③：198909858</p></div>
+<div class="row">
+    <div class="col-lg-12 col-sm-12 col-xs-12">
+        <div class="widget">
+            <div class="widget-header bordered-bottom bordered-blue">
+                <span class="widget-caption">编辑文章</span>
+            </div>
+            <div class="widget-body">
+                <div id="horizontal-form">
+                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+											<input type="hidden" name="id" value="<?php echo $articleres['id']; ?>">
+												<div class="form-group">
+                            <label for="username" class="col-sm-2 control-label no-padding-right">标题</label>
+                            <div class="col-sm-6">
+                                <input value="<?php echo $articleres['title']; ?>" class="form-control" placeholder="" name="title" required="" type="text">
+                            </div>
+                            <p class="help-block col-sm-4 red">* 必填</p>
+                        </div>
+												<div class="form-group">
+                            <label for="username" class="col-sm-2 control-label no-padding-right">作者</label>
+                            <div class="col-sm-6">
+                                <input value="<?php echo $articleres['author']; ?>" class="form-control" placeholder="" name="author" required="" type="text">
+                            </div>
+                            <p class="help-block col-sm-4 red">* 必填</p>
+                        </div>
+												<div class="form-group">
+                            <label for="username" class="col-sm-2 control-label no-padding-right">关键词</label>
+                            <div class="col-sm-6">
+                                <input value="<?php echo $articleres['keywords']; ?>" class="form-control" placeholder="" name="keywords" required="" type="text">
+                            </div>
+                            <p class="help-block col-sm-4 red">* 必填</p>
+                        </div>
+												<div class="form-group">
+                            <label for="username" class="col-sm-2 control-label no-padding-right">描述</label>
+                            <div class="col-sm-6">
+                                <textarea name="desc" class="form-control"><?php echo $articleres['desc']; ?></textarea>
+                            </div>
+                            <p class="help-block col-sm-4 red">* 必填</p>
+                        </div>
+												<div class="form-group">
+                            <label for="username" class="col-sm-2 control-label no-padding-right">缩略图</label>
+                            <div class="col-sm-6">
+                                <input style="float:left;" placeholder="" name="thumb" type="file">
+																<?php if($articleres['thumb'] != ''): ?><img style="float:left;width:25px;height:25px;" src="http://<?php echo $_SERVER['HTTP_HOST'].'/'.$articleres['thumb']; ?>" alt="">
+																<?php else: ?>暂无缩略图
+																<?php endif; ?>
+                            </div>
+                            <p class="help-block col-sm-4 red">* 必填</p>
+                        </div>
+												<div class="form-group">
+														<label for="group_id" class="col-sm-2 control-label no-padding-right">所属栏目</label>
+														<div class="col-sm-6">
+																<select name="cateid" style="width: 100%;">
+																	<option selected="selected" value="0">顶级栏目</option>
+																	<?php if(is_array($cateres) || $cateres instanceof \think\Collection || $cateres instanceof \think\Paginator): $i = 0; $__LIST__ = $cateres;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$cate): $mod = ($i % 2 );++$i;?>
+																	 <option <?php if($cate['id'] == $articleres['cateid']): ?>selected="selected"<?php endif; ?> value="<?php echo $cate['id']; ?>"><?php echo str_repeat('---',$cate['level']) ?><?php echo $cate['catename']; ?></option>
+																	<?php endforeach; endif; else: echo "" ;endif; ?>
+															</select>
+														</div>
+														<p class="help-block col-sm-4 red">* 必填</p>
+												</div>
+												<div class="form-group">
+                            <label for="username" class="col-sm-2 control-label no-padding-right">内容</label>
+                            <div class="col-sm-6">
+																<textarea id="content" name="content"><?php echo $articleres['content']; ?></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-default">保存信息</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-
+            </div>
+        </div>
+    </div>
+</div>
 
                 </div>
                 <!-- /Page Body -->
@@ -202,6 +284,9 @@
     <script src="http://tp2.com/public/static/admin/style/jquery.js"></script>
     <!--Beyond Scripts-->
     <script src="http://tp2.com/public/static/admin/style/beyond.js"></script>
+		<script type="text/javascript">
+			UE.getEditor('content',{initiaIFrameWidth:1500,initiaIFrameHeight:400,});
+		</script>
 
 
 
