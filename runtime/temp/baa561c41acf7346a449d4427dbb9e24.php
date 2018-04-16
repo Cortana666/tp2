@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:99:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/public/../application/admin/view/article/add.htm";i:1523452650;s:88:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/top.htm";i:1522757993;s:89:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/left.htm";i:1523445719;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:96:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/public/../application/admin/view/link/lst.htm";i:1523882688;s:88:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/top.htm";i:1522757993;s:89:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/left.htm";i:1523878601;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -18,9 +18,6 @@
     <link href="http://tp2.com/public/static/admin/style/demo.css" rel="stylesheet">
     <link href="http://tp2.com/public/static/admin/style/typicons.css" rel="stylesheet">
     <link href="http://tp2.com/public/static/admin/style/animate.css" rel="stylesheet">
-		<script type="text/javascript" src="http://tp2.com/public/static/admin/bdediter/ueditor.config.js"></script>
-		<script type="text/javascript" src="http://tp2.com/public/static/admin/bdediter/ueditor.all.min.js"></script>
-		<script type="text/javascript" src="http://tp2.com/public/static/admin/bdediter/lang/zh-cn/zh-cn.js"></script>
 
 </head>
 <body>
@@ -89,8 +86,7 @@
 	<div class="main-container container-fluid">
 		<div class="page-container">
 			            <!-- Page Sidebar -->
-
-									<div class="page-sidebar" id="sidebar">
+            <div class="page-sidebar" id="sidebar">
 		<!-- Page Sidebar Header-->
 		<div class="sidebar-header-wrapper">
 				<input class="searchinput" type="text">
@@ -154,6 +150,23 @@
 
 				<li>
 						<a href="#" class="menu-dropdown">
+								<i class="menu-icon fa fa-chain"></i>
+								<span class="menu-text">友情链接</span>
+								<i class="menu-expand"></i>
+						</a>
+						<ul class="submenu">
+								<li>
+										<a href="<?php echo url('link/lst'); ?>">
+												<span class="menu-text">
+														链接列表                                    </span>
+												<i class="menu-expand"></i>
+										</a>
+								</li>
+						</ul>
+				</li>
+
+				<li>
+						<a href="#" class="menu-dropdown">
 								<i class="menu-icon fa fa-gear"></i>
 								<span class="menu-text">系统</span>
 								<i class="menu-expand"></i>
@@ -182,10 +195,7 @@
                                         <li>
                         <a href="#">系统</a>
                     </li>
-                                        <li>
-                        <a href="<?php echo url('lst'); ?>">文章管理</a>
-                    </li>
-                                        <li class="active">添加文章</li>
+                                        <li class="active">链接管理</li>
                                         </ul>
                 </div>
                 <!-- /Page Breadcrumb -->
@@ -193,74 +203,61 @@
                 <!-- Page Body -->
                 <div class="page-body">
 
+<button type="button" tooltip="添加管理员" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '<?php echo url('add'); ?>'"> <i class="fa fa-plus"></i> Add
+</button>
 <div class="row">
     <div class="col-lg-12 col-sm-12 col-xs-12">
         <div class="widget">
-            <div class="widget-header bordered-bottom bordered-blue">
-                <span class="widget-caption">新增文章</span>
-            </div>
             <div class="widget-body">
-                <div id="horizontal-form">
-                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
-												<div class="form-group">
-                            <label for="username" class="col-sm-2 control-label no-padding-right">标题</label>
-                            <div class="col-sm-6">
-                                <input class="form-control" placeholder="" name="title" required="" type="text">
-                            </div>
-                            <p class="help-block col-sm-4 red">* 必填</p>
-                        </div>
-												<div class="form-group">
-                            <label for="username" class="col-sm-2 control-label no-padding-right">作者</label>
-                            <div class="col-sm-6">
-                                <input class="form-control" placeholder="" name="author" required="" type="text">
-                            </div>
-                            <p class="help-block col-sm-4 red">* 必填</p>
-                        </div>
-												<div class="form-group">
-                            <label for="username" class="col-sm-2 control-label no-padding-right">关键词</label>
-                            <div class="col-sm-6">
-                                <input class="form-control" placeholder="" name="keywords" required="" type="text">
-                            </div>
-                            <p class="help-block col-sm-4 red">* 必填</p>
-                        </div>
-												<div class="form-group">
-                            <label for="username" class="col-sm-2 control-label no-padding-right">描述</label>
-                            <div class="col-sm-6">
-                                <textarea name="desc" class="form-control"></textarea>
-                            </div>
-                            <p class="help-block col-sm-4 red">* 必填</p>
-                        </div>
-												<div class="form-group">
-                            <label for="username" class="col-sm-2 control-label no-padding-right">缩略图</label>
-                            <div class="col-sm-6">
-                                <input placeholder="" name="thumb" required="" type="file">
-                            </div>
-                            <p class="help-block col-sm-4 red">* 必填</p>
-                        </div>
-												<div class="form-group">
-														<label for="group_id" class="col-sm-2 control-label no-padding-right">所属栏目</label>
-														<div class="col-sm-6">
-																<select name="cateid" style="width: 100%;">
-																	<option selected="selected" value="0">顶级栏目</option>
-																	<?php if(is_array($cateres) || $cateres instanceof \think\Collection || $cateres instanceof \think\Paginator): $i = 0; $__LIST__ = $cateres;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$cate): $mod = ($i % 2 );++$i;?>
-																	 <option value="<?php echo $cate['id']; ?>"><?php echo str_repeat('---',$cate['level']) ?><?php echo $cate['catename']; ?></option>
-																	<?php endforeach; endif; else: echo "" ;endif; ?>
-															</select>
-														</div>
-														<p class="help-block col-sm-4 red">* 必填</p>
-												</div>
-												<div class="form-group">
-                            <label for="username" class="col-sm-2 control-label no-padding-right">内容</label>
-                            <div class="col-sm-6">
-																<textarea id="content" name="content"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-default">保存信息</button>
-                            </div>
-                        </div>
+                <div class="flip-scroll">
+                    <form class="" action="" method="post">
+											<table class="table table-bordered table-hover">
+													<thead class="">
+															<tr>
+																	<th class="text-center">ID</th>
+																	<th class="text-center">排序</th>
+																	<th class="text-center">标题</th>
+																	<th class="text-center">地址</th>
+																	<th class="text-center">描述</th>
+																	<th class="text-center">操作</th>
+															</tr>
+													</thead>
+													<tbody>
+														<?php if(is_array($linkres) || $linkres instanceof \think\Collection || $linkres instanceof \think\Paginator): $i = 0; $__LIST__ = $linkres;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$link): $mod = ($i % 2 );++$i;?>
+															<tr>
+																	<td align="center"><?php echo $link['id']; ?></td>
+																	<td align="center">
+																		<input style="width:20px;" type="text" name="<?php echo $link['id']; ?>" value="<?php echo $link['sort']; ?>">
+																	</td>
+																	<td align="center"><?php echo $link['title']; ?></td>
+																	<td align="center"><a href="<?php echo $link['url']; ?>" target="_blank"><?php echo $link['url']; ?></a></td>
+																	<td align="center"><?php echo $link['desc']; ?></td>
+																	<td align="center">
+																			<a href="<?php echo url('edit', array('id'=>$link['id'])); ?>" class="btn btn-primary btn-sm shiny">
+																					<i class="fa fa-edit"></i> 编辑
+																			</a>
+																			<a href="#" onClick="warning('确实要删除吗？', '<?php echo url('del',array('id'=>$link['id'])); ?>')" class="btn btn-danger btn-sm shiny">
+																					<i class="fa fa-trash-o"></i> 删除
+																			</a>
+																	</td>
+															</tr>
+														<?php endforeach; endif; else: echo "" ;endif; ?>
+															<tr>
+																	<td></td>
+																	<td align="center">
+																		<input type="submit" value="排序">
+																	</td>
+																	<td></td>
+																	<td></td>
+																	<td></td>
+																	<td></td>
+															</tr>
+													</tbody>
+											</table>
                     </form>
+                </div>
+                <div style="width: 210px;margin: auto;padding-top: 15test.htmlpx;">
+									<?php echo $linkres->render(); ?>
                 </div>
             </div>
         </div>
@@ -280,9 +277,6 @@
     <script src="http://tp2.com/public/static/admin/style/jquery.js"></script>
     <!--Beyond Scripts-->
     <script src="http://tp2.com/public/static/admin/style/beyond.js"></script>
-		<script type="text/javascript">
-			UE.getEditor('content',{initiaIFrameWidth:1500,initiaIFrameHeight:400,});
-		</script>
 
 
 

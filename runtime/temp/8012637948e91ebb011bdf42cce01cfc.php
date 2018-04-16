@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:99:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/public/../application/admin/view/article/lst.htm";i:1523858881;s:88:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/top.htm";i:1522757993;s:89:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/left.htm";i:1523865905;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:96:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/public/../application/admin/view/link/add.htm";i:1523881465;s:88:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/top.htm";i:1522757993;s:89:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/left.htm";i:1523878601;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -86,7 +86,8 @@
 	<div class="main-container container-fluid">
 		<div class="page-container">
 			            <!-- Page Sidebar -->
-            <div class="page-sidebar" id="sidebar">
+
+									<div class="page-sidebar" id="sidebar">
 		<!-- Page Sidebar Header-->
 		<div class="sidebar-header-wrapper">
 				<input class="searchinput" type="text">
@@ -158,7 +159,7 @@
 								<li>
 										<a href="<?php echo url('link/lst'); ?>">
 												<span class="menu-text">
-														友情链接列表                                    </span>
+														链接列表                                    </span>
 												<i class="menu-expand"></i>
 										</a>
 								</li>
@@ -195,7 +196,10 @@
                                         <li>
                         <a href="#">系统</a>
                     </li>
-                                        <li class="active">文章管理</li>
+                                        <li>
+                        <a href="<?php echo url('lst'); ?>">链接管理</a>
+                    </li>
+                                        <li class="active">添加链接</li>
                                         </ul>
                 </div>
                 <!-- /Page Breadcrumb -->
@@ -203,57 +207,46 @@
                 <!-- Page Body -->
                 <div class="page-body">
 
-<button type="button" tooltip="添加管理员" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '<?php echo url('add'); ?>'"> <i class="fa fa-plus"></i> Add
-</button>
 <div class="row">
     <div class="col-lg-12 col-sm-12 col-xs-12">
         <div class="widget">
+            <div class="widget-header bordered-bottom bordered-blue">
+                <span class="widget-caption">新增链接</span>
+            </div>
             <div class="widget-body">
-                <div class="flip-scroll">
-                    <form class="" action="" method="post">
-											<table class="table table-bordered table-hover">
-													<thead class="">
-															<tr>
-																	<th class="text-center">ID</th>
-																	<th class="text-center">标题</th>
-																	<th class="text-center">缩略图</th>
-																	<th class="text-center">作者</th>
-																	<th class="text-center">所属栏目</th>
-																	<th class="text-center">操作</th>
-															</tr>
-													</thead>
-													<tbody>
-															<?php if(is_array($article) || $article instanceof \think\Collection || $article instanceof \think\Paginator): $i = 0; $__LIST__ = $article;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$art): $mod = ($i % 2 );++$i;?>
-																<tr>
-																		<td align="center"><?php echo $art['id']; ?></td>
-																		<td align="center">
-																			<?php
-																				if(mb_strlen($art['title'])>7){
-																					echo mb_substr($art['title'],0,6,'utf-8').'......';
-																				}else{
-																					echo $art['title'];
-																				}
-																			?>
-																		</td>
-																		<td align="center"><?php if($art['thumb'] != null): ?><img style="width:25px;height:25px;" src="http://<?php echo $_SERVER['HTTP_HOST'].'/'.$art['thumb']; ?>"><?php else: ?>暂无缩略图<?php endif; ?></td>
-																		<td align="center"><?php echo $art['author']; ?></td>
-																		<td align="center"><?php echo $art['catename']; ?></td>
-																		<td align="center">
-																				<a href="<?php echo url('edit',array('id' => $art['id'])); ?>" class="btn btn-primary btn-sm shiny">
-																						<i class="fa fa-edit"></i> 编辑
-																				</a>
-																				<a href="#" onClick="warning('确实要删除吗？','<?php echo url('del',array('id' => $art['id'])); ?>')" class="btn btn-danger btn-sm shiny">
-																						<i class="fa fa-trash-o"></i> 删除
-																				</a>
-																		</td>
-																</tr>
-															<?php endforeach; endif; else: echo "" ;endif; ?>
-													</tbody>
-											</table>
+                <div id="horizontal-form">
+                    <form class="form-horizontal" role="form" action="" method="post">
+
+
+												<div class="form-group">
+                            <label for="username" class="col-sm-2 control-label no-padding-right">标题</label>
+                            <div class="col-sm-6">
+                                <input class="form-control" placeholder="" name="title" required="" type="text">
+                            </div>
+                            <p class="help-block col-sm-4 red">* 必填</p>
+                        </div>
+
+												<div class="form-group">
+                            <label for="username" class="col-sm-2 control-label no-padding-right">地址</label>
+                            <div class="col-sm-6">
+                                <input class="form-control" placeholder="" name="url" required="" type="text">
+                            </div>
+                            <p class="help-block col-sm-4 red">* 必填</p>
+                        </div>
+
+												<div class="form-group">
+                            <label for="username" class="col-sm-2 control-label no-padding-right">描述</label>
+                            <div class="col-sm-6">
+                                <textarea class="form-control" name="desc"></textarea>
+                            </div>
+                            <p class="help-block col-sm-4 red">* 必填</p>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-default">保存信息</button>
+                            </div>
+                        </div>
                     </form>
-                </div>
-                <div style="width: 210px;margin: auto;padding-top: 15test.htmlpx;">
-									<?php echo $article->render(); ?>
                 </div>
             </div>
         </div>

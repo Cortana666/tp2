@@ -11,7 +11,7 @@
       $article = new ArticleModel();
       $res = $article -> view('cate','catename')
                   ->view('article','id,title,author,thumb','cate.id=article.cateid')
-                  ->paginate(1);
+                  ->paginate(10);
       $this -> assign('article',$res);
       return view();
     }

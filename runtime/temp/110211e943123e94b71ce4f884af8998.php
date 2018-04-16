@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:96:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/public/../application/admin/view/cate/lst.htm";i:1523366847;s:88:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/top.htm";i:1522757993;s:89:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/left.htm";i:1523445719;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:96:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/public/../application/admin/view/cate/lst.htm";i:1523865422;s:88:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/top.htm";i:1522757993;s:89:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/left.htm";i:1523878601;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -150,6 +150,23 @@
 
 				<li>
 						<a href="#" class="menu-dropdown">
+								<i class="menu-icon fa fa-chain"></i>
+								<span class="menu-text">友情链接</span>
+								<i class="menu-expand"></i>
+						</a>
+						<ul class="submenu">
+								<li>
+										<a href="<?php echo url('link/lst'); ?>">
+												<span class="menu-text">
+														链接列表                                    </span>
+												<i class="menu-expand"></i>
+										</a>
+								</li>
+						</ul>
+				</li>
+
+				<li>
+						<a href="#" class="menu-dropdown">
 								<i class="menu-icon fa fa-gear"></i>
 								<span class="menu-text">系统</span>
 								<i class="menu-expand"></i>
@@ -213,8 +230,9 @@
 																	</td>
 																	<td><?php echo str_repeat('---',$cate['level']) ?><?php echo $cate['catename']; ?></td>
 																	<td align="center">
-																		<?php if($cate['type'] == 1): ?>列表
-																		<?php else: ?>单页
+																		<?php if($cate['type'] == 1): ?>文章列表
+																		<?php elseif($cate['type'] == 2): ?>单页列表
+																		<?php else: ?>图片列表
 																		<?php endif; ?>
 																	</td>
 																	<td align="center">

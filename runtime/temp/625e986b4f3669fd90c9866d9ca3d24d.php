@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:96:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/public/../application/admin/view/cate/add.htm";i:1523362495;s:88:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/top.htm";i:1522757993;s:89:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/left.htm";i:1523445719;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:97:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/public/../application/admin/view/link/edit.htm";i:1523881452;s:88:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/top.htm";i:1522757993;s:89:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/left.htm";i:1523878601;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -151,6 +151,23 @@
 
 				<li>
 						<a href="#" class="menu-dropdown">
+								<i class="menu-icon fa fa-chain"></i>
+								<span class="menu-text">友情链接</span>
+								<i class="menu-expand"></i>
+						</a>
+						<ul class="submenu">
+								<li>
+										<a href="<?php echo url('link/lst'); ?>">
+												<span class="menu-text">
+														链接列表                                    </span>
+												<i class="menu-expand"></i>
+										</a>
+								</li>
+						</ul>
+				</li>
+
+				<li>
+						<a href="#" class="menu-dropdown">
 								<i class="menu-icon fa fa-gear"></i>
 								<span class="menu-text">系统</span>
 								<i class="menu-expand"></i>
@@ -180,9 +197,9 @@
                         <a href="#">系统</a>
                     </li>
                                         <li>
-                        <a href="<?php echo url('lst'); ?>">栏目管理</a>
+                        <a href="<?php echo url('lst'); ?>">链接管理</a>
                     </li>
-                                        <li class="active">添加栏目</li>
+                                        <li class="active">编辑链接</li>
                                         </ul>
                 </div>
                 <!-- /Page Breadcrumb -->
@@ -194,50 +211,35 @@
     <div class="col-lg-12 col-sm-12 col-xs-12">
         <div class="widget">
             <div class="widget-header bordered-bottom bordered-blue">
-                <span class="widget-caption">新增栏目</span>
+                <span class="widget-caption">编辑链接</span>
             </div>
             <div class="widget-body">
                 <div id="horizontal-form">
                     <form class="form-horizontal" role="form" action="" method="post">
+											<input type="hidden" name="id" value="<?php echo $link['id']; ?>">
 											<div class="form-group">
-													<label for="group_id" class="col-sm-2 control-label no-padding-right">上级栏目</label>
+													<label for="username" class="col-sm-2 control-label no-padding-right">标题</label>
 													<div class="col-sm-6">
-															<select name="pid" style="width: 100%;">
-																<option selected="selected" value="0">顶级栏目</option>
-																<?php if(is_array($cateres) || $cateres instanceof \think\Collection || $cateres instanceof \think\Paginator): $i = 0; $__LIST__ = $cateres;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$cate): $mod = ($i % 2 );++$i;?>
-																 <option value="<?php echo $cate['id']; ?>"><?php echo str_repeat('---',$cate['level']) ?><?php echo $cate['catename']; ?></option>
-																<?php endforeach; endif; else: echo "" ;endif; ?>
-														</select>
+															<input class="form-control" placeholder="" name="title" required="" type="text" value="<?php echo $link['title']; ?>">
 													</div>
+													<p class="help-block col-sm-4 red">* 必填</p>
 											</div>
 
-												<div class="form-group">
-                            <label for="username" class="col-sm-2 control-label no-padding-right">栏目名称</label>
-                            <div class="col-sm-6">
-                                <input class="form-control" placeholder="" name="catename" required="" type="text">
-                            </div>
-                            <p class="help-block col-sm-4 red">* 必填</p>
-                        </div>
+											<div class="form-group">
+													<label for="username" class="col-sm-2 control-label no-padding-right">地址</label>
+													<div class="col-sm-6">
+															<input class="form-control" placeholder="" name="url" required="" type="text" value="<?php echo $link['url']; ?>">
+													</div>
+													<p class="help-block col-sm-4 red">* 必填</p>
+											</div>
 
-
-
-                        <div class="form-group">
-                            <label for="group_id" class="col-sm-2 control-label no-padding-right">栏目类型</label>
-														<div class="col-sm-6">
-                                <div class="radio" style="float:left;margin-right:10px">
-																	<label>
-																		<input value="1" checked="checked" type="radio" name="type" class="basic">
-																		<span class="text">列表</span>
-																	</label>
-                                </div>
-																<div class="radio" style="float:left;margin-right:10px">
-																	<label>
-																		<input value="2" type="radio" name="type" class="inverted">
-																		<span class="text">单页</span>
-																	</label>
-                                </div>
-                            </div>
-                        </div>
+											<div class="form-group">
+													<label for="username" class="col-sm-2 control-label no-padding-right">描述</label>
+													<div class="col-sm-6">
+															<textarea class="form-control" name="desc"><?php echo $link['desc']; ?></textarea>
+													</div>
+													<p class="help-block col-sm-4 red">* 必填</p>
+											</div>
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
                                 <button type="submit" class="btn btn-default">保存信息</button>
