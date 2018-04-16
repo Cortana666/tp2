@@ -54,8 +54,12 @@
       return view();
     }
 
-    public function del()
+    public function del($id)
     {
-      echo "string";die;
+      if (ArticleModel::destroy($id)) {
+        $this -> success('删除文章成功！',url('lst'));
+      }else {
+        $this -> error('删除文章失败！',url('lst'));
+      }
     }
   }

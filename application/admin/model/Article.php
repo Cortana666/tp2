@@ -33,5 +33,17 @@
             }
           }
         });
+
+        Article::event('before_delete', function ($article) {
+            $res = Article::where('id',$article['id']) ->  find();
+            $url = ROOT_PATH.$res['thumb'];
+            if (file_exists($url)) {
+              @unlink($url);
+            }
+        });
     }
+
+    // public function del($cateid) {
+    //   return Article::where('cateid','=',$cateid)->delete();
+    // }
   }

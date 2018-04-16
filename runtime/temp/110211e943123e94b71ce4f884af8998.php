@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:99:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/public/../application/admin/view/article/lst.htm";i:1523858881;s:88:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/top.htm";i:1522757993;s:89:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/left.htm";i:1523865905;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:96:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/public/../application/admin/view/cate/lst.htm";i:1523366847;s:88:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/top.htm";i:1522757993;s:89:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/left.htm";i:1523445719;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -150,23 +150,6 @@
 
 				<li>
 						<a href="#" class="menu-dropdown">
-								<i class="menu-icon fa fa-chain"></i>
-								<span class="menu-text">友情链接</span>
-								<i class="menu-expand"></i>
-						</a>
-						<ul class="submenu">
-								<li>
-										<a href="<?php echo url('link/lst'); ?>">
-												<span class="menu-text">
-														友情链接列表                                    </span>
-												<i class="menu-expand"></i>
-										</a>
-								</li>
-						</ul>
-				</li>
-
-				<li>
-						<a href="#" class="menu-dropdown">
 								<i class="menu-icon fa fa-gear"></i>
 								<span class="menu-text">系统</span>
 								<i class="menu-expand"></i>
@@ -195,7 +178,7 @@
                                         <li>
                         <a href="#">系统</a>
                     </li>
-                                        <li class="active">文章管理</li>
+                                        <li class="active">栏目管理</li>
                                         </ul>
                 </div>
                 <!-- /Page Breadcrumb -->
@@ -215,45 +198,50 @@
 													<thead class="">
 															<tr>
 																	<th class="text-center">ID</th>
-																	<th class="text-center">标题</th>
-																	<th class="text-center">缩略图</th>
-																	<th class="text-center">作者</th>
-																	<th class="text-center">所属栏目</th>
+																	<th class="text-center">排序</th>
+																	<th class="text-center">栏目名称</th>
+																	<th class="text-center">栏目类型</th>
 																	<th class="text-center">操作</th>
 															</tr>
 													</thead>
 													<tbody>
-															<?php if(is_array($article) || $article instanceof \think\Collection || $article instanceof \think\Paginator): $i = 0; $__LIST__ = $article;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$art): $mod = ($i % 2 );++$i;?>
-																<tr>
-																		<td align="center"><?php echo $art['id']; ?></td>
-																		<td align="center">
-																			<?php
-																				if(mb_strlen($art['title'])>7){
-																					echo mb_substr($art['title'],0,6,'utf-8').'......';
-																				}else{
-																					echo $art['title'];
-																				}
-																			?>
-																		</td>
-																		<td align="center"><?php if($art['thumb'] != null): ?><img style="width:25px;height:25px;" src="http://<?php echo $_SERVER['HTTP_HOST'].'/'.$art['thumb']; ?>"><?php else: ?>暂无缩略图<?php endif; ?></td>
-																		<td align="center"><?php echo $art['author']; ?></td>
-																		<td align="center"><?php echo $art['catename']; ?></td>
-																		<td align="center">
-																				<a href="<?php echo url('edit',array('id' => $art['id'])); ?>" class="btn btn-primary btn-sm shiny">
-																						<i class="fa fa-edit"></i> 编辑
-																				</a>
-																				<a href="#" onClick="warning('确实要删除吗？','<?php echo url('del',array('id' => $art['id'])); ?>')" class="btn btn-danger btn-sm shiny">
-																						<i class="fa fa-trash-o"></i> 删除
-																				</a>
-																		</td>
-																</tr>
-															<?php endforeach; endif; else: echo "" ;endif; ?>
+														<?php if(is_array($cateres) || $cateres instanceof \think\Collection || $cateres instanceof \think\Paginator): $i = 0; $__LIST__ = $cateres;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$cate): $mod = ($i % 2 );++$i;?>
+															<tr>
+																	<td align="center"><?php echo $cate['id']; ?></td>
+																	<td align="center">
+																		<input style="width:20px;" type="text" name="<?php echo $cate['id']; ?>" value="<?php echo $cate['sort']; ?>">
+																	</td>
+																	<td><?php echo str_repeat('---',$cate['level']) ?><?php echo $cate['catename']; ?></td>
+																	<td align="center">
+																		<?php if($cate['type'] == 1): ?>列表
+																		<?php else: ?>单页
+																		<?php endif; ?>
+																	</td>
+																	<td align="center">
+																			<a href="<?php echo url('edit', array('id'=>$cate['id'])); ?>" class="btn btn-primary btn-sm shiny">
+																					<i class="fa fa-edit"></i> 编辑
+																			</a>
+																			<a href="#" onClick="warning('确实要删除吗？', '<?php echo url('del',array('id'=>$cate['id'])); ?>')" class="btn btn-danger btn-sm shiny">
+																					<i class="fa fa-trash-o"></i> 删除
+																			</a>
+																	</td>
+															</tr>
+														<?php endforeach; endif; else: echo "" ;endif; ?>
+															<tr>
+																	<td></td>
+																	<td align="center">
+																		<input type="submit" value="排序">
+																	</td>
+																	<td></td>
+																	<td></td>
+																	<td></td>
+															</tr>
 													</tbody>
 											</table>
                     </form>
                 </div>
                 <div style="width: 210px;margin: auto;padding-top: 15test.htmlpx;">
-									<?php echo $article->render(); ?>
+
                 </div>
             </div>
         </div>
