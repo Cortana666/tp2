@@ -2,6 +2,7 @@
   namespace app\admin\controller;
   use think\Session;
   use app\admin\controller\Common;
+  use app\admin\validate\Link as LinkValidate;
   use app\admin\model\Link as LinkModel;
 
   class Link extends Common
@@ -21,6 +22,10 @@
       public function add(){
         $link = new LinkModel();
         if (request()->isPost()) {
+          $validate = new LinkValidate();
+          if(!$validate->scene('add')->check($data)){
+              $this -> error($validate->getError());
+          }
           $data = input('post.');
           if ($link -> save($data)) {
             $this -> success('添加链接成功！',url('lst'));
@@ -44,6 +49,10 @@
       public function edit($id) {
         $link = new LinkModel();
         if (request()->isPost()) {
+          $validate = new LinkValidate();
+          if(!$validate->scene('edit')->check($data)){
+              $this -> error($validate->getError());
+          }
           $data = input('post.');
           if ($link -> save($data,['id' => $data['id']])) {
             $this -> success('修改链接成功！',url('lst'));

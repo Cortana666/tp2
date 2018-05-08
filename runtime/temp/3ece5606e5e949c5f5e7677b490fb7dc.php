@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:99:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/public/../application/admin/view/article/lst.htm";i:1523882264;s:88:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/top.htm";i:1522757993;s:89:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/left.htm";i:1523878601;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:99:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/public/../application/admin/view/article/lst.htm";i:1525782355;s:88:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/top.htm";i:1522757993;s:89:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/left.htm";i:1525779924;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -134,7 +134,7 @@
 				<li>
 						<a href="#" class="menu-dropdown">
 								<i class="menu-icon fa fa-file-text"></i>
-								<span class="menu-text">文档</span>
+								<span class="menu-text">文章</span>
 								<i class="menu-expand"></i>
 						</a>
 						<ul class="submenu">
@@ -173,9 +173,16 @@
 						</a>
 						<ul class="submenu">
 								<li>
-										<a href="/admin/document/index.html">
+										<a href="<?php echo url('conf/conf'); ?>">
 												<span class="menu-text">
-														配置                                   </span>
+														配置项                                   </span>
+												<i class="menu-expand"></i>
+										</a>
+								</li>
+								<li>
+										<a href="<?php echo url('conf/lst'); ?>">
+												<span class="menu-text">
+														配置列表                                   </span>
 												<i class="menu-expand"></i>
 										</a>
 								</li>
@@ -252,7 +259,7 @@
 											</table>
                     </form>
                 </div>
-                <div style="width: 210px;margin: auto;padding-top: 15test.htmlpx;">
+                <div style="width: 210px;margin: auto;padding-top: 15px;">
 									<?php echo $article->render(); ?>
                 </div>
             </div>

@@ -51,6 +51,9 @@
       if (empty($data['name'])) {
         return 3;
       }
+      if(!captcha_check($data['captcha'])){
+        return 4;
+      };
       $res = $this -> where('name',$data['name']) -> find();
       if (empty($res)) {
         return 0;

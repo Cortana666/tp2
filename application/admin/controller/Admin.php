@@ -2,6 +2,7 @@
   namespace app\admin\controller;
   use think\Session;
   use app\admin\controller\Common;
+  use app\admin\validate\Admin as AdminValidate;
   use app\admin\model\Admin as AdminModel;
 
   class Admin extends Common
@@ -18,7 +19,12 @@
       {
         if (request() -> isPost()) {
           $admin = new AdminModel();
-          $res = $admin -> addadmin(input('post.'));
+          $data = input('post.');
+          $validate = new AdminValidate();
+          if(!$validate->scene('add')->check($data)){
+              $this -> error($validate->getError());
+          }
+          $res = $admin -> addadmin($data);
           if ($res) {
             $this -> success('添加管理员成功！', url('lst'));
           }else {
@@ -34,7 +40,12 @@
         $admin = new AdminModel;
         $adminres = $admin -> editAdmin($id);
         if (request()->isPost()) {
-          if ($admin -> saveAdmin(input('post.'),$adminres) !== false) {
+          $data = input('post.');
+          $validate = new AdminValidate();
+          if(!$validate->scene('edit')->check($data)){
+              $this -> error($validate->getError());
+          }
+          if ($admin -> saveAdmin($data,$adminres) !== false) {
             $this -> success('修改管理员成功！', url('lst'));
           }else {
             $this -> error('修改管理员失败！');

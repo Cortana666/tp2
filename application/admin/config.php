@@ -10,5 +10,5 @@ return [
       '__PUBLIC__'=>'/public/',
       '__ROOT__' => '/',
       '__ADMIN__' => 'http://tp2.com/public/static/admin',
-    ]
+    ],
 ];

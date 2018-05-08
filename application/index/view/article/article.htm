@@ -137,13 +137,13 @@ function ILike(th, v) {
             <div id="content">
                 <div class="post" id="post-19563" style="border-right: solid 1px #000000; min-height: 1700px;
                     margin-top: 10px;">
-                    <div class="path"><a href='#'>主页</a> > <a href='/life/'>单车生活</a> > </div>
+                    <div class="path"><a href='{:url('index/index')}'>主页</a> >{if condition="$cateres.type eq 1"}artlist{elseif condition="$cateres.type eq 3" /}imglist{/if} <a href='{:url('index//index',array('cateid' => $cateres.id))}'>{$cateres.catename}</a> > </div>
                     <div class="single_entry single2_entry">
                         <div class="entry fewcomment">
                             <div class="title_container">
                                 <h2 class="title single_title">
-                                    <span>子弹传球：北京-香港4000多公里单车寻爱之旅</span><span class="title_date"></span></h2>
-                                <p class="single_info">时间：2014-02-06 12:28&nbsp;&nbsp;&nbsp;编辑：童攀</p>
+                                    <span>{$artres.title}</span><span class="title_date"></span></h2>
+                                <p class="single_info">时间：{$artres.time|date="Y年m月d日 m:s",###}&nbsp;&nbsp;&nbsp;编辑：{$artres.author}</p>
                             </div>
                             <div class="div-content">
 

@@ -19,6 +19,8 @@ class Login extends Controller
           $this -> error('管理员密码错误！');
         }elseif ($num == 3) {
           $this -> error('管理员名称不能为空！');
+        }elseif ($num == 4) {
+          $this -> error('验证码错误！');
         }
       }
       return view('login');

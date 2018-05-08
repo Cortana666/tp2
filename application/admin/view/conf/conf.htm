@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html><head>
+	    <meta charset="utf-8">
+    <title>童老师ThinkPHP交流群：484519446</title>
+
+    <meta name="description" content="Dashboard">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--Basic Styles-->
+    <link href="__ADMIN__/style/bootstrap.css" rel="stylesheet">
+    <link href="__ADMIN__/style/font-awesome.css" rel="stylesheet">
+    <link href="__ADMIN__/style/weather-icons.css" rel="stylesheet">
+
+    <!--Beyond styles-->
+    <link id="beyond-link" href="__ADMIN__/style/beyond.css" rel="stylesheet" type="text/css">
+    <link href="__ADMIN__/style/demo.css" rel="stylesheet">
+    <link href="__ADMIN__/style/typicons.css" rel="stylesheet">
+    <link href="__ADMIN__/style/animate.css" rel="stylesheet">
+
+</head>
+<body>
+	<!-- 头部 -->
+	{include file="public/top" /}
+
+	<!-- /头部 -->
+
+	<div class="main-container container-fluid">
+		<div class="page-container">
+			            <!-- Page Sidebar -->
+            {include file="public/left" /}
+            <!-- /Page Sidebar -->
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Page Breadcrumb -->
+                <div class="page-breadcrumbs">
+                    <ul class="breadcrumb">
+                                        <li>
+                        <a href="#">系统</a>
+                    </li>
+                                        <li class="active">系统</li>
+                                        </ul>
+                </div>
+                <!-- /Page Breadcrumb -->
+
+                <!-- Page Body -->
+                <div class="page-body">
+
+<div class="row">
+    <div class="col-lg-12 col-sm-12 col-xs-12">
+        <div class="widget">
+            <div class="widget-body">
+                <div class="flip-scroll">
+                    <form class="" action="" method="post">
+											<table class="table table-bordered table-hover">
+													<thead class="">
+															<tr>
+																	<th class="text-center">配置名称</th>
+																	<th class="text-center">配置值</th>
+															</tr>
+													</thead>
+													<tbody>
+														<?php
+															foreach($confres as $k => $v){
+														?>
+															<tr>
+																	<td align="center"><?php echo $v['cnname']; ?></td>
+																	<td align="center">
+																		<?php
+																			if($v['type'] == 1){
+																		?>
+																		<input class="form-control" type="text" name="<?php echo $v['enname']; ?>" value="<?php echo $v['value']; ?>">
+																		<?php
+																			}elseif($v['type'] == 2){
+																		?>
+																		<textarea name="<?php echo $v['enname']; ?>" class="form-control"><?php echo $v['value']; ?></textarea>
+																		<?php
+																			}elseif($v['type'] == 3){
+																		?>
+																		<?php
+																				$values = explode(",",$v['values']);
+																				for($i=0;$i<count($values);$i++){
+																		?>
+																		<label style="margin-right:15px;">
+																			<input value="<?php echo $values[$i]; ?>" {if condition="$v['value'] == $values[$i]"}checked="checked"{/if} type="radio" name="<?php echo $v['enname']; ?>" class="basic">
+																			<span class="text"><?php echo $values[$i]; ?></span>
+																		</label>
+																		<?php
+																				}
+																			}elseif($v['type'] == 4){
+																		?>
+																		<label style="margin-right:15px;">
+																			<input type="checkbox" name="<?php echo $v['enname']; ?>" {if condition="$v['value'] == $v['values']"}checked="checked"{/if} value="<?php echo $v['values']; ?>">
+																			<span class="text"><?php echo $v['values']; ?></span>
+																		</label>
+																		<?php
+																			}elseif($v['type'] == 5){
+																				$values = explode(",",$v['values']);
+																		?>
+																		<select class="" name="<?php echo $v['enname']; ?>">
+																		<?php
+																				for($i=0;$i<count($values);$i++){
+																		?>
+																		<option {if condition="$v['value'] == $values[$i]"}selected="selected"{/if} value="<?php echo $values[$i]; ?>"><?php echo $values[$i]; ?></option>
+																		<?php
+																				}
+																		?>
+																		</select>
+																		<?php
+																			}
+																	 	?>
+																	</td>
+															</tr>
+															<?php
+																}
+															?>
+															<tr>
+																<td colspan="2"><div class="form-group">
+																		<div class="col-sm-offset-2 col-sm-10">
+																				<button type="submit" class="btn btn-default">保存信息</button>
+																		</div>
+																</div></td>
+															</tr>
+													</tbody>
+
+											</table>
+                    </form>
+                </div>
+                <div style="width: 210px;margin: auto;padding-top: 15test.htmlpx;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                </div>
+                <!-- /Page Body -->
+            </div>
+            <!-- /Page Content -->
+		</div>
+	</div>
+
+	    <!--Basic Scripts-->
+    <script src="__ADMIN__/style/jquery_002.js"></script>
+    <script src="__ADMIN__/style/bootstrap.js"></script>
+    <script src="__ADMIN__/style/jquery.js"></script>
+    <!--Beyond Scripts-->
+    <script src="__ADMIN__/style/beyond.js"></script>
+
+
+
+</body></html>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:96:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/public/../application/admin/view/cate/lst.htm";i:1523865422;s:88:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/top.htm";i:1522757993;s:89:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/left.htm";i:1523878601;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:96:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/public/../application/admin/view/cate/lst.htm";i:1523865422;s:88:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/top.htm";i:1522757993;s:89:"/Volumes/HighSierraFile/HighSierraFile/www/new/tp2/application/admin/view/public/left.htm";i:1524143272;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -173,9 +173,16 @@
 						</a>
 						<ul class="submenu">
 								<li>
-										<a href="/admin/document/index.html">
+										<a href="<?php echo url('conf/conf'); ?>">
 												<span class="menu-text">
-														配置                                   </span>
+														配置项                                   </span>
+												<i class="menu-expand"></i>
+										</a>
+								</li>
+								<li>
+										<a href="<?php echo url('conf/lst'); ?>">
+												<span class="menu-text">
+														配置列表                                   </span>
 												<i class="menu-expand"></i>
 										</a>
 								</li>

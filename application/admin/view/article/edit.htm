@@ -73,23 +73,20 @@
 												<div class="form-group">
                             <label for="username" class="col-sm-2 control-label no-padding-right">作者</label>
                             <div class="col-sm-6">
-                                <input value="{$articleres.author}" class="form-control" placeholder="" name="author" required="" type="text">
+                                <input value="{$articleres.author}" class="form-control" placeholder="" name="author" type="text">
                             </div>
-                            <p class="help-block col-sm-4 red">* 必填</p>
                         </div>
 												<div class="form-group">
                             <label for="username" class="col-sm-2 control-label no-padding-right">关键词</label>
                             <div class="col-sm-6">
-                                <input value="{$articleres.keywords}" class="form-control" placeholder="" name="keywords" required="" type="text">
+                                <input value="{$articleres.keywords}" class="form-control" placeholder="" name="keywords" type="text">
                             </div>
-                            <p class="help-block col-sm-4 red">* 必填</p>
                         </div>
 												<div class="form-group">
                             <label for="username" class="col-sm-2 control-label no-padding-right">描述</label>
                             <div class="col-sm-6">
                                 <textarea name="desc" class="form-control">{$articleres.desc}</textarea>
                             </div>
-                            <p class="help-block col-sm-4 red">* 必填</p>
                         </div>
 												<div class="form-group">
                             <label for="username" class="col-sm-2 control-label no-padding-right">缩略图</label>
@@ -99,7 +96,6 @@
 																{else /}暂无缩略图
 																{/if}
                             </div>
-                            <p class="help-block col-sm-4 red">* 必填</p>
                         </div>
 												<div class="form-group">
 														<label for="group_id" class="col-sm-2 control-label no-padding-right">所属栏目</label>
